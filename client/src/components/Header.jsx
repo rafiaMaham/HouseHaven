@@ -1,8 +1,6 @@
 import { FaSearch } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import homeLogo from "../assets/images/homeLogo.png";
-// import hoho from "../assets/images/hoho.jpg";
-// import homi from "../assets/images/homi.png";
 
 const Header = () => {
   return (
