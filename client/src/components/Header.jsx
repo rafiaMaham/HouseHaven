@@ -31,7 +31,7 @@ const Header = () => {
               About
             </li>
           </Link>
-          <Link to="sign-in">
+          <Link to="signin">
             <li className="text-white hover:text-slate-300 font-montserrat">
               Sign In
             </li>

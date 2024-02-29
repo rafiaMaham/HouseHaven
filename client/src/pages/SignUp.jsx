@@ -30,14 +30,13 @@ const SignUp = () => {
       });
       const data = await res.json();
       if (data.success === false) {
-        console.log(data);
-        setError(data.message);
         setLoading(false);
-        setError(null);
-        navigate("/sign-in");
+        setError(data.message);
         return;
       }
       setLoading(false);
+      setError(null);
+      navigate("/signin");
     } catch (error) {
       setLoading(false);
       setError(error.message);
@@ -80,7 +79,7 @@ const SignUp = () => {
       </form>
       <div className="mt-5 flex gap-2 items-center justify-center">
         <p className="font-montserrat">Have an account?</p>
-        <Link to="/sign-in">
+        <Link to="/signin">
           <span className="text-blue-500  font-montserrat">Sign In </span>
         </Link>
       </div>
