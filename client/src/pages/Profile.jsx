@@ -14,6 +14,9 @@ import {
   deleteUserStart,
   deleteUserSuccess,
   deleteUserFailure,
+  signOutUserFailure,
+  signOutUserStart,
+  signOutUserSuccess,
 } from "../redux/user/userSlice.js";
 
 const Profile = () => {
@@ -103,6 +106,36 @@ const Profile = () => {
     }
   };
 
+  // const handleSignOut = async () => {
+  //   try {
+  //     dispatch(signOutUserStart());
+  //     const res = await fetch("/api/auth/signout");
+  //     const data = await res.json();
+  //     if (data.success === false) {
+  //       dispatch(signOutUserFailure(data.message));
+  //       return;
+  //     }
+  //     dispatch(signOutUserSuccess(data));
+  //   } catch (error) {
+  //     dispatch(signOutUserFailure(error.message));
+  //   }
+  // };
+
+  const handleSignOut = async () => {
+    try {
+      dispatch(signOutUserStart());
+      const res = await fetch("/api/auth/signout");
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
+
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center font-montserrat my-7 text-maroon">
@@ -172,7 +205,10 @@ const Profile = () => {
         >
           Delete account
         </span>
-        <span className="text-red-700 font-montsrrat font-semibold cursor-pointer p-1">
+        <span
+          className="text-red-700 font-montsrrat font-semibold cursor-pointer p-1"
+          onClick={handleSignOut}
+        >
           Sign out
         </span>
       </div>
