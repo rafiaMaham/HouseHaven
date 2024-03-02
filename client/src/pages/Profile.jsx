@@ -11,6 +11,9 @@ import {
   updateUserStart,
   updateUserFailure,
   updateUserSuccess,
+  deleteUserStart,
+  deleteUserSuccess,
+  deleteUserFailure,
 } from "../redux/user/userSlice.js";
 
 const Profile = () => {
@@ -83,6 +86,23 @@ const Profile = () => {
     }
   };
 
+  const handleDeleteUser = async () => {
+    try {
+      dispatch(deleteUserStart());
+      const res = await fetch(`/api/user/delete/${currentUser._id}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success === false) {
+        dispatch(deleteUserFailure(data.message));
+        return;
+      }
+      dispatch(deleteUserSuccess(data));
+    } catch (error) {
+      dispatch(deleteUserFailure(error.message));
+    }
+  };
+
   return (
     <div className="p-3 max-w-lg mx-auto">
       <h1 className="text-3xl font-semibold text-center font-montserrat my-7 text-maroon">
@@ -146,7 +166,10 @@ const Profile = () => {
         </button>
       </form>
       <div className="flex justify-between mt-5">
-        <span className="text-red-700 font-montsrrat font-semibold cursor-pointer p-1">
+        <span
+          className="text-red-700 font-montsrrat font-semibold cursor-pointer p-1"
+          onClick={handleDeleteUser}
+        >
           Delete account
         </span>
         <span className="text-red-700 font-montsrrat font-semibold cursor-pointer p-1">
@@ -155,7 +178,7 @@ const Profile = () => {
       </div>
 
       <p className="text-red-700 text-center">{error ? error : ""}</p>
-      <p className="text-green-700 text-center">
+      <p className="text-green-700 text -center">
         {updateSuccess ? "User is updated successfully!!!" : ""}
       </p>
     </div>
