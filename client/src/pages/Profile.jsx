@@ -19,6 +19,8 @@ import {
   signOutUserSuccess,
 } from "../redux/user/userSlice.js";
 
+import { Link } from "react-router-dom";
+
 const Profile = () => {
   const { currentUser, loading, error } = useSelector((state) => state.user);
   const [file, setFile] = useState(undefined);
@@ -106,8 +108,6 @@ const Profile = () => {
     }
   };
 
-
-
   const handleSignOut = async () => {
     try {
       dispatch(signOutUserStart());
@@ -184,6 +184,13 @@ const Profile = () => {
         >
           {loading ? "Loading..." : "Update"}
         </button>
+
+        <Link
+          className="bg-green-700 text-white rounded-lg uppercase text-center font-montsrrat p-3 hover:opacity-95 "
+          to="/create-listing"
+        >
+          Create Listing
+        </Link>
       </form>
       <div className="flex justify-between mt-5">
         <span
