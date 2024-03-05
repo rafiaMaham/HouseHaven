@@ -37,7 +37,9 @@ const CreateListing = () => {
             // value={formData.address}
           />
 
-          <div className="flex gap-6 flex-wrap">
+          <div className="flex flex-wrap flex-row justify-center items-center gap-8">
+
+          <div className="flex gap-6 flex-wrap sm:flex-col">
             <div className="flex gap-2">
               <input type="checkbox" id="sale" className="w-5" />
               <span>Sell</span>
@@ -59,10 +61,10 @@ const CreateListing = () => {
               <span>Offer</span>
             </div>
           </div>
-          <div className="flex flex-wrap gap-6">
-            <div className="flex items-center gap-2">
+          <div className="flex flex-wrap gap-6 sm:flex-col">
+            <div className="flex items-center gap-2 ">
               <input
-                className="p-3 border border-gray-300 rounded-lg"
+                className="p-1 border border-gray-300 rounded-lg"
                 type="number"
                 id="bedrooms"
                 min="1"
@@ -74,7 +76,7 @@ const CreateListing = () => {
 
             <div className="flex items-center gap-2">
               <input
-                className="p-3 border border-gray-300 rounded-lg"
+                className="p-1 border border-gray-300 rounded-lg"
                 type="number"
                 id="bathrooms"
                 min="1"
@@ -86,7 +88,7 @@ const CreateListing = () => {
 
             <div className="flex items-center gap-2">
               <input
-                className="p-3 border border-gray-300 rounded-lg"
+                className="p-1 border border-gray-300 rounded-lg"
                 type="number"
                 id="regularPrice"
                 min="1"
@@ -102,7 +104,7 @@ const CreateListing = () => {
 
             <div className="flex items-center gap-2">
               <input
-                className="p-3 border border-gray-300 rounded-lg"
+                className="p-1 border border-gray-300 rounded-lg"
                 type="number"
                 id="discountedPrice"
                 min="1"
@@ -115,6 +117,8 @@ const CreateListing = () => {
               </div>
             </div>
           </div>
+          </div>
+
         </div>
 
         <div className="flex flex-col flex-1 gap-4">
