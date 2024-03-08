@@ -333,7 +333,7 @@ const CreateListing = () => {
               multiple
             />
             <button
-              className="bg-green-700 text-white rounded-lg uppercase text-center font-montsrrat p-3 hover:opacity-95"
+              className="bg-green-700 text-white rounded-lg uppercase text-center font-montserrat p-3 hover:opacity-95"
               type="button"
               onClick={handleImageSubmit}
             >
