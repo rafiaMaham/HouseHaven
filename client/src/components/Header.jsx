@@ -29,10 +29,12 @@ const Header = () => {
     <header className="bg-maroon shadow-md">
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
-          <h1 className="font-bold  sm:text-xl flex flex-wrap justify-between items-center ">
+          <div className="font-bold  sm:text-xl flex flex-wrap justify-center items-center ">
             <img src={homeLogo} alt="logo" width={80} height={80} />
-            <span className="text-white font-montserrat">House Haven</span>
-          </h1>
+            <span className="text-white font-montserrat text-center">
+              House Haven
+            </span>
+          </div>
         </Link>
         <form
           onSubmit={handleSubmit}
@@ -49,9 +51,9 @@ const Header = () => {
             <FaSearch className="text-slate-500" />
           </button>
         </form>
-        <ul className="flex flex-wrap gap-3  sm:gap-16">
+        <ul className="flex flex-wrap gap-3  sm:gap-16 justify-center text-lg">
           <Link to="/">
-            <li className="text-white hover:text-slate-300 font-montserrat gap-4">
+            <li className="text-white hover:text-slate-300 font-montserrat gap-4 ">
               Home
             </li>
           </Link>
