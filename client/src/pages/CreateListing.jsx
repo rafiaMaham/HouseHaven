@@ -291,7 +291,7 @@ const CreateListing = () => {
 
               <div className="flex flex-col items-center ">
                 <p>Regular price</p>
-                <span className="text-xs">($ / month)</span>
+                <span className="text-xs">(₹ / month)</span>
               </div>
             </div>
           </div>
@@ -310,7 +310,7 @@ const CreateListing = () => {
               />
               <div className="flex flex-col items-center">
                 <p>Discounted Price</p>
-                <span className="text-xs">($ / month)</span>
+                <span className="text-xs">(₹ / month)</span>
               </div>
             </div>
           )}
@@ -335,7 +335,6 @@ const CreateListing = () => {
             <button
               className="bg-green-700 text-white rounded-lg uppercase text-center font-montsrrat p-3 hover:opacity-95"
               type="button"
-              
               onClick={handleImageSubmit}
             >
               {uploading ? "Uploading..." : "Upload"}

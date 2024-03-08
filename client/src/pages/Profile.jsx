@@ -32,6 +32,7 @@ const Profile = () => {
   const [updateSuccess, setUpdateSuccess] = useState(false);
   const [showListingsError,setShowListingsError] = useState(false);
   const [userListings, setUserListings] = useState([]);
+  const [addItem, setAddItem] = useState("")
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -129,10 +130,12 @@ const Profile = () => {
   const handleShowListings = async () =>{
     try {
       setShowListingsError(false);
+      
       const res = await fetch(`/api/user/listings/${currentUser._id}`);
       const data = await res.json();
       if (data.success === false) {
         setShowListingsError(true);
+        
         return;
       }
 
@@ -141,6 +144,8 @@ const Profile = () => {
       setShowListingsError(true);
     }
   }
+
+
 
 const handleListingDelete = async (listingId) => {
   try {
@@ -249,12 +254,22 @@ const handleListingDelete = async (listingId) => {
       <p className="text-green-700 text -center">
         {updateSuccess ? "User is updated successfully!!!" : ""}
       </p>
+
+     
       <button
         onClick={handleShowListings}
         className="font-montserrat w-full  font-semibold text-maroon"
       >
         Show Listings
       </button>
+
+      {/* <button
+        onClick={handleShowListings}
+        className="font-montserrat w-full  font-semibold text-maroon"
+      >
+        Show Listings
+      </button> */}
+
       <p className="text-red-700 mt-5">
         {showListingsError ? "Ooops!!! Error showing listing" : ""}
       </p>
